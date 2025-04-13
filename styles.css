@@ -1,149 +1,121 @@
-* {
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background */
+    color: #333; /* Dark text for contrast */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
-body {
-    min-height: 100vh;
+/* Card container */
+.card-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+    height: 100vh;
 }
 
-.card-container {
-    perspective: 1000px;
-    width: 350px;
-    height: 500px;
-}
-
+/* Card styles */
 .card {
-    position: relative;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.card-front, .card-back {
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-    cursor: pointer;
-}
-
-.card.flipped {
-    transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
     backface-visibility: hidden;
-    border-radius: 20px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s;
+}
+
+.card-front {
+    background-color: #ffffff; /* White background for the front */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .card-back {
+    background-color: #f0f0f0; /* Light gray background for the back */
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-.profile-image {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
-}
-
+/* Profile image */
 .profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid #ddd;
 }
 
-.info {
-    text-align: center;
-    color: white;
-}
-
+/* Info section */
 .info h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .info h2 {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #555;
 }
 
 .info p {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    color: #777;
 }
 
-.contact-info {
-    margin-top: 40px;
+/* Flip prompt */
+.flip-prompt p {
+    font-size: 0.9rem;
+    color: #888;
+    cursor: pointer;
 }
 
-.contact-item {
+/* Contact info */
+.contact-info .contact-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    color: white;
+    margin: 10px 0;
+    color: #555;
 }
 
-.contact-item i {
-    font-size: 20px;
-    margin-right: 15px;
-    color: rgba(255, 255, 255, 0.8);
+.contact-info .contact-item i {
+    margin-right: 10px;
+    color: #888;
 }
 
-.contact-item a,
-.contact-item p {
-    color: white;
+.contact-info .contact-item a {
     text-decoration: none;
-    font-size: 16px;
+    color: #555;
 }
 
+.contact-info .contact-item a:hover {
+    color: #333;
+}
+
+/* Social links */
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
+    gap: 10px;
 }
 
-.social-icon {
-    color: white;
-    font-size: 24px;
-    transition: transform 0.3s, color 0.3s;
+.social-links .social-icon {
+    color: #555;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 
-.social-icon:hover {
-    transform: translateY(-5px);
-    color: rgba(255, 255, 255, 0.7);
+.social-links .social-icon:hover {
+    color: #333;
 }
-
-.flip-prompt {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    left: 0;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.flip-prompt i {
-    margin-left: 5px;
-    font-size: 14px;
-}
-
-@media (max-width: 400px) {
-    .card-container {
-        width: 90%;
-        height: 450px;
-    }
-} 
